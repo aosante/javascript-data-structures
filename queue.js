@@ -2,27 +2,27 @@
 
 function Queue() {
   collection = [];
-  this.print = function() {
+  this.print = function () {
     console.log(collection);
   };
-  this.enqueue = function(element) {
+  this.enqueue = function (element) {
     collection.push(element);
   };
-  this.dequeue = function() {
+  this.dequeue = function () {
     return collection.shift();
   };
-  this.front = function() {
+  this.front = function () {
     return collection[0];
   };
-  this.size = function() {
+  this.size = function () {
     return collection.length;
   };
-  this.isEmpty = function() {
+  this.isEmpty = function () {
     return collection.length === 0;
   };
 }
 
-var q = new Queue();
+const q = new Queue();
 q.enqueue('a');
 q.enqueue('b');
 q.enqueue('c');
@@ -32,16 +32,16 @@ console.log(q.front());
 q.print();
 
 function PriorityQueue() {
-  var collection = [];
-  this.printCollection = function() {
+  const collection = [];
+  this.printCollection = function () {
     console.log(collection);
   };
-  this.enqueue = function(element) {
+  this.enqueue = function (element) {
     if (this.isEmpty()) {
       collection.push(element);
     } else {
-      var added = false;
-      for (var i = 0; i < collection.length; i++) {
+      let added = false;
+      for (let i = 0; i < collection.length; i++) {
         if (element[1] < collection[i][1]) {
           //checking priorities
           collection.splice(i, 0, element);
@@ -54,22 +54,22 @@ function PriorityQueue() {
       }
     }
   };
-  this.dequeue = function() {
-    var value = collection.shift();
+  this.dequeue = function () {
+    const value = collection.shift();
     return value[0];
   };
-  this.front = function() {
+  this.front = function () {
     return collection[0];
   };
-  this.size = function() {
+  this.size = function () {
     return collection.length;
   };
-  this.isEmpty = function() {
+  this.isEmpty = function () {
     return collection.length === 0;
   };
 }
 
-var pq = new PriorityQueue();
+const pq = new PriorityQueue();
 pq.enqueue(['Beau Carnes', 2]);
 pq.enqueue(['Quincy Larson', 3]);
 pq.enqueue(['Ewa Mitulska-Wójcik', 1]);

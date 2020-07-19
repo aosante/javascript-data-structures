@@ -58,7 +58,7 @@ const Stack = function () {
   };
 };
 
-var myStack = new Stack();
+const myStack = new Stack();
 
 myStack.push(1);
 myStack.push(2);
