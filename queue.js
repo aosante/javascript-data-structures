@@ -26,11 +26,13 @@ const q = new Queue();
 q.enqueue('a');
 q.enqueue('b');
 q.enqueue('c');
-q.print();
-q.dequeue();
+q.print(); // ['a', 'b', 'c']
+q.dequeue(); // removes a
 console.log(q.front());
-q.print();
+q.print(); // ['b', 'c']
 
+// you pass the element into the queue as well as the priorities
+// elements with higher priority are pushed into the queue first
 function PriorityQueue() {
   const collection = [];
   this.printCollection = function () {
@@ -42,8 +44,9 @@ function PriorityQueue() {
     } else {
       let added = false;
       for (let i = 0; i < collection.length; i++) {
+        //checking priorities (priority is in the second position of each array)
         if (element[1] < collection[i][1]) {
-          //checking priorities
+          // add the element to the collection array
           collection.splice(i, 0, element);
           added = true;
           break;
@@ -56,6 +59,7 @@ function PriorityQueue() {
   };
   this.dequeue = function () {
     const value = collection.shift();
+    // only the element's item (without the priority) is returned
     return value[0];
   };
   this.front = function () {
