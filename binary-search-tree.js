@@ -10,6 +10,7 @@ class Node {
 
 class BST {
   constructor() {
+    // top of the tree
     this.root = null;
   }
   add(data) {
@@ -19,7 +20,7 @@ class BST {
       return;
     } else {
       // recursive function that runs down the tree to see where to put the new node
-      const searchTree = function(node) {
+      const searchTree = function (node) {
         if (data < node.data) {
           if (node.left === null) {
             node.left = new Node(data);
@@ -85,7 +86,7 @@ class BST {
   }
   // look at how this function works when a node has two child nodes
   remove(data) {
-    const removeNode = function(node, data) {
+    const removeNode = function (node, data) {
       if (node == null) {
         return null;
       }
@@ -103,7 +104,7 @@ class BST {
           return node.left;
         }
         // node has two children
-        var tempNode = node.right;
+        let tempNode = node.right;
         while (tempNode.left !== null) {
           tempNode = tempNode.left;
         }
@@ -151,7 +152,7 @@ class BST {
     if (this.root == null) {
       return null;
     } else {
-      var result = new Array();
+      const result = new Array();
       function traverseInOrder(node) {
         node.left && traverseInOrder(node.left);
         result.push(node.data);
@@ -165,7 +166,7 @@ class BST {
     if (this.root == null) {
       return null;
     } else {
-      var result = new Array();
+      const result = new Array();
       function traversePreOrder(node) {
         result.push(node.data);
         node.left && traversePreOrder(node.left);
@@ -179,7 +180,7 @@ class BST {
     if (this.root == null) {
       return null;
     } else {
-      var result = new Array();
+      const result = new Array();
       function traversePostOrder(node) {
         node.left && traversePostOrder(node.left);
         node.right && traversePostOrder(node.right);
