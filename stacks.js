@@ -62,9 +62,9 @@ const myStack = new Stack();
 
 myStack.push(1);
 myStack.push(2);
-console.log(myStack.peek());
-console.log(myStack.pop());
-console.log(myStack.peek());
+console.log(myStack.peek()); // returns 2
+console.log(myStack.pop()); // returns and removes 1
+console.log(myStack.peek()); // returns 1
 myStack.push('freeCodeCamp');
 console.log(myStack.size());
 console.log(myStack.peek());
