@@ -2,10 +2,10 @@
 // Pairs keys to values. It's a technique used to convert a range of key values, into
 // a range of indexes of an array (look at the HashTable.add function)
 
-var hash = (string, max) => {
+const hash = (string, max) => {
   // max is the number of buckets ijn the hash table being used to store info
-  var hash = 0;
-  for (var i = 0; i < string.length; i++) {
+  const hash = 0;
+  for (let i = 0; i < string.length; i++) {
     // add the character codes to the hash variable
     hash += string.charCodeAt(i);
   }
@@ -13,22 +13,22 @@ var hash = (string, max) => {
   return hash % max;
 };
 
-let HashTable = function() {
+let HashTable = function () {
   let storage = [];
   const storageLimit = 14;
 
-  this.print = function() {
+  this.print = function () {
     console.log(storage);
   };
 
-  this.add = function(key, value) {
-    var index = hash(key, storageLimit);
+  this.add = function (key, value) {
+    const index = hash(key, storageLimit);
     // if there is no key-value pari inserted in that bucket
     if (storage[index] === undefined) {
       storage[index] = [[key, value]];
     } else {
-      var inserted = false;
-      for (var i = 0; i < storage[index].length; i++) {
+      const inserted = false;
+      for (let i = 0; i < storage[index].length; i++) {
         // if the key exists, we set the new value here
         if (storage[index][i][0] === key) {
           storage[index][i][1] = value;
@@ -42,12 +42,12 @@ let HashTable = function() {
     }
   };
 
-  this.remove = function(key) {
-    var index = hash(key, storageLimit);
+  this.remove = function (key) {
+    const index = hash(key, storageLimit);
     if (storage[index].length === 1 && storage[index][0][0] === key) {
       delete storage[index];
     } else {
-      for (var i = 0; i < storage[index].length; i++) {
+      for (let i = 0; i < storage[index].length; i++) {
         if (storage[index][i][0] === key) {
           delete storage[index][i];
         }
@@ -55,13 +55,13 @@ let HashTable = function() {
     }
   };
 
-  this.lookup = function(key) {
-    var index = hash(key, storageLimit);
+  this.lookup = function (key) {
+    const index = hash(key, storageLimit);
     // element does not exist
     if (storage[index] === undefined) {
       return undefined;
     } else {
-      for (var i = 0; i < storage[index].length; i++) {
+      for (let i = 0; i < storage[index].length; i++) {
         // if the key is equal to the passed in key, then return the corresponding value
         if (storage[index][i][0] === key) {
           return storage[index][i][1];
